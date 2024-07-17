@@ -15,6 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('body');
+            $table->integer('user_id');
+            $table->integer('cat_id');
+            $table->string('thumbnail_image')->nullable();
+            $table->string('header_image')->nullable();
+            $table->softDeletes(); // This will add the deleted_at column for soft deletes
+            $table->foreignId('subcategory_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
