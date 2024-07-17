@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('thumbnail_image')->nullable();
             $table->string('header_image')->nullable();
             $table->softDeletes(); // This will add the deleted_at column for soft deletes
-            $table->foreignId('subcategory_id')->constrained()->onDelete('cascade');
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->integer('subcategory_id');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }
